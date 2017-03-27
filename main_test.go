@@ -5,16 +5,8 @@ import (
 	"testing"
 )
 
-func BenchmarkXxx(testing.B)
-
-func BenchmarkHello(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		fmt.Sprintf("hello")
-	}
-}
-
-func Test() {
-	for i := 0; i < b.N; i++ {
+func Test(t *testing.T) {
+	for i := 0; i < 20; i++ {
 		fmt.Sprintf("hello")
 	}
 }
