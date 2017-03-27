@@ -15,3 +15,13 @@ before_script:
   
 script:
  - go test -v ./...
+
+
+deploy:
+  provider: releases
+  api-key: e238b350d9d049def9dbe67ce0e0d2063f5356dc
+  file_glob: true
+  file: /*
+  skip_cleanup: true
+  on:
+    tags: true
