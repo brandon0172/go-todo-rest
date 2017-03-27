@@ -19,6 +19,6 @@ func Test(t *testing.T) {
 	assert.Nil(object)
 
 	if assert.NotNil(object) {
-		assert.Equal("Something", object.Value)
+		assert.Equal("Something", object)
 	}
 }
