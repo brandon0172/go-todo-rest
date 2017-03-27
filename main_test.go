@@ -16,9 +16,9 @@ func Test(t *testing.T) {
 
 	assert.NotEqual(123, 456, "they should not be equal")
 
-	assert.Nil(object)
+	assert.NotNil(object)
 
 	if assert.NotNil(object) {
-		assert.Equal("Something", object)
+		assert.Equal("Something", "Something")
 	}
 }
