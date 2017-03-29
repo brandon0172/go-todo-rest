@@ -9,7 +9,6 @@ services:
 before_script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 
-
 script:
   - docker build -f operations/docker/Dockerfile.test -t go-todo-rest:test .
   - docker run --rm go-todo-rest:test
