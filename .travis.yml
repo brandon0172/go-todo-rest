@@ -22,4 +22,4 @@ before_script:
 script:
  - go test -v ./...
  - docker build -f operation/dokcer/Dockerfile -t go-todo-rest .
- - docker push brandonvanwijk/go-todo-rest
+ - docker push go-todo-rest
