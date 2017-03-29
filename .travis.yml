@@ -11,4 +11,4 @@ before_script:
 
 script:
  - docker build -f operations/docker/Dockerfile -t go-todo-rest .
- - docker push brandonvanwijk/go-todo-rest:CURRENT=$$(git rev-parse --abbrev-ref HEAD)-$$(git rev-parse HEAD | cut -c1-7)
+ - docker push brandonvanwijk/go-todo-rest:latest
