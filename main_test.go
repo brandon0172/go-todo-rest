@@ -1,12 +1,24 @@
 package main
 
 import (
-	"fmt"
 	"testing"
+
+	"github.com/badmuts/go-todo-rest/web"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test(t *testing.T) {
-	for i := 0; i < 20; i++ {
-		fmt.Sprintf("hello")
+	object := web.NewServer()
+
+	assert := assert.New(t)
+
+	assert.Equal(123, 123, "they should be equal")
+
+	assert.NotEqual(123, 456, "they should not be equal")
+
+	assert.NotNil(object)
+
+	if assert.NotNil(object) {
+		assert.Equal("Something", "Something")
 	}
 }
