@@ -1,13 +1,20 @@
 language: go
-go: 
- - 1.3.3
- - 1.4.2
- - 1.5.1
- - release
- - tip
+
+sudo: required
+
+
+services:
+  - docker
 
 before_script:
-  - go get
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 
 script:
- - go test -v ./...
+  - docker build -f operations/docker/Dockerfile.test -t go-todo-rest:test .
+  - docker build -f operations/docker/Dockerfile -t brandonvanwijk/go-todo-rest:latest .
+  - docker run --rm go-todo-rest:test
+  - docker push brandonvanwijk/go-todo-rest:latest 
+
+after_script:
+  - docker rmi go-todo-rest:test
+  - docker rmi go-todo-rest:latest
