@@ -4,13 +4,13 @@ services:
   api:
     build:
       context: .
-      dockerfile: operations/docker/Dockerfile
+      dockerfile: operations/docker/Dockerfile.dev
     ports: 
       - "3000:3000"
     environment: 
       - PORT=8080
     volumes: 
-      - ".:/go/src/github.com/badmuts/go-todo-rest"
+      - ".:/go/src/github.com/brandon0172/go-todo-rest"
 
   mysql:
     image: mysql
