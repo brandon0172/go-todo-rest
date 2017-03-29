@@ -1,29 +1,25 @@
 language: go
 
+sudo: required
+
 go: 
  - 1.3.3
  - 1.4.2
  - 1.5.1
- - release
+ - 1.8.0
  - tip
+
+services:
+  - docker
 
 install:
   - go get -v github.com/stretchr/testify/assert
 
 before_script:
   - go get
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 
 script:
  - go test -v ./...
  - docker build -f Dockerfile -t go-todo-rest .
  - docker push brandonvanwijk/go-todo-rest
-
-
-deploy:
-  provider: releases
-  api-key: e238b350d9d049def9dbe67ce0e0d2063f5356dc
-  file_glob: true
-  file: /*
-  skip_cleanup: true
-  on:
-    tags: true
