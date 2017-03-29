@@ -13,4 +13,4 @@ script:
   - docker build -t go-todo-rest:test -f operations/docker/Dockerfile.test .
   - docker run --rm go-todo-rest:test
   - docker build -f operations/docker/Dockerfile -t brandonvanwijk/go-todo-rest:latest .
-  - docker push brandonvanwijk/go-todo-rest:latest
+  - docker push brandonvanwijk/go-todo-rest:latest 
