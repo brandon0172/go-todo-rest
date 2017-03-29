@@ -10,3 +10,7 @@ func Test(t *testing.T) {
 		fmt.Printf("Welcome %d times\n", i)
 	}
 }
+
+func TestSomething(t *testing.T) {
+	t.Fail()
+}
