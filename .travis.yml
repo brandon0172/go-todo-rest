@@ -17,4 +17,4 @@ script:
 
 after_script:
   - docker rmi go-todo-rest:test
-  - docker rmi go-todo-rest:latest
+  - docker rmi brandonvanwijk/go-todo-rest:latest
