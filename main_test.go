@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/brandon0172/go-todo-rest/go-todo-rest/web"
+	"github.com/badmuts/go-todo-rest/web"
 	"github.com/stretchr/testify/assert"
 )
 
