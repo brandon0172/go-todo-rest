@@ -8,7 +8,7 @@ import (
 
 	"encoding/json"
 
-	"github.com/badmuts/go-todo-rest/models"
+	"github.com/brandon0172/go-todo-rest/go-todo-rest/models"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
 )

@@ -1,7 +1,7 @@
 package web
 
 import (
-	"github.com/badmuts/go-todo-rest/controllers"
+	"github.com/brandon0172/go-todo-rest/go-todo-rest/controllers"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
 	"github.com/urfave/negroni"
