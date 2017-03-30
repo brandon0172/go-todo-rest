@@ -12,7 +12,9 @@ before_script:
 script:
   - docker build -f operations/docker/Dockerfile.test -t go-todo-rest:test .
   - docker build -f operations/docker/Dockerfile -t brandonvanwijk/go-todo-rest:latest .
-  - docker run --rm go-todo-rest:test
+  - mkdir coverage
+  - docker run --rm -v $(pwd)/coverage:/coverage go-todo-rest:test go test -v -coverprofile=/coverage/c.out
+  - docker run --rm -v $(pwd)/coverage:/coverage go-todo-rest:test go tool cover -html=/coverage/c.out -o /coverage/coverage.html
   - docker push brandonvanwijk/go-todo-rest:latest 
 
 after_script:
