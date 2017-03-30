@@ -15,8 +15,9 @@ before_script:
 script:
   - docker build -f operations/docker/Dockerfile.test -t go-todo-rest:test .
   - docker build -f operations/docker/Dockerfile -t brandonvanwijk/go-todo-rest:latest .
-  - docker run --rm go-todo-rest:test go test -v -covermode=count -coverprofile=coverage.out
-  - goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
+  - mkdir coverage
+  - docker run --rm go-todo-rest:test go test -v -covermode=count -coverprofile=coverage/coverage.out
+  - goveralls -coverprofile=coverage/coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
   - docker push brandonvanwijk/go-todo-rest:latest 
 
 after_script:
