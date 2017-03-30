@@ -6,6 +6,9 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - go get github.com/mattn/goveralls
+
 before_script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 
@@ -13,7 +16,7 @@ script:
   - docker build -f operations/docker/Dockerfile.test -t go-todo-rest:test .
   - docker build -f operations/docker/Dockerfile -t brandonvanwijk/go-todo-rest:latest .
   - docker run --rm go-todo-rest:test go test -v -covermode=count -coverprofile=coverage.out
-  - /home/brandon/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
+  - goveralls -coverprofile=profile.cov -service=travis-ci -repotoken $COVERALLS_TOKEN
   - docker push brandonvanwijk/go-todo-rest:latest 
 
 after_script:
