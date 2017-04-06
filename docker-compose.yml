@@ -10,7 +10,7 @@ services:
     environment: 
       - PORT=8080
     volumes: 
-      - ".:/go/src/github.com/brandon0172/go-todo-rest/go-todo-rest"
+      - ".:/go/src/github.com/badnuts/go-todo-rest"
 
   mysql:
     image: mysql
